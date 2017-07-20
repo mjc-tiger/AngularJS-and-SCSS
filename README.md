@@ -1,1 +1,1 @@
-# AngularJS and SCSS
+# First steps with AngularJS and SCSS
