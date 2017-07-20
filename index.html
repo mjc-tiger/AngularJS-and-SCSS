@@ -1,0 +1,45 @@
+<!doctype html>
+<html>
+  <head>
+    <title>My AngularJS App</title>
+    <link href="https://fonts.googleapis.com/css?family=PT+Sans" rel="stylesheet">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <link rel="stylesheet" href="style.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.6/angular.min.js"></script>
+  </head>
+  <body ng-app="app">
+    <div class="container" ng-controller="tableController">
+      <div class="jumbotron">
+        <h1>Klasyfikacja {{jumpers.length}} skoczków narciarskich</h1>
+      </div>
+      <div class="input-group">
+        <span class="input-group-addon">Szukaj: </span>
+        <input type="text" class="form-control" placeholder="?" ng-model="browser">
+      </div><br>
+      <div class="table-responsive">
+        <table class="table table-hover">
+          <thead>
+            <tr>
+              <th ng-repeat="tHead in [
+                'Rank', 'Name'
+              ]">{{tHead}}</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr ng-repeat="skijumper in jumpers | filter : browser">
+              <td>{{skijumper.Rank}}</td>
+              <td>{{skijumper.Name}}</td>
+            </tr>
+          </tbody>
+
+        </table>
+
+      </div>
+
+    </div>
+  </body>
+
+  <script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+  <script src="skiJumpers.js"></script>
+</html>
